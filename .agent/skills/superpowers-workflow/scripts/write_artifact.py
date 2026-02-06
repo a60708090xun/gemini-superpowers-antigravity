@@ -13,13 +13,17 @@ def find_repo_root(start: Path) -> Path:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--path", required=True, help="Repo-relative path to write, e.g. artifacts/superpowers/brainstorm.md")
+    parser.add_argument("--file", help="Path to file containing content to write (optional)")
     args = parser.parse_args()
 
     repo_root = find_repo_root(Path.cwd())
     out_path = (repo_root / args.path).resolve()
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    content = sys.stdin.read()
+    if args.file:
+        content = Path(args.file).read_text(encoding="utf-8")
+    else:
+        content = sys.stdin.read()
     out_path.write_text(content, encoding="utf-8")
     print(str(out_path))
     return 0
