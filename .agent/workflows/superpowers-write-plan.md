@@ -45,11 +45,11 @@ After generating the plan content above, you MUST write it to disk:
 2) Run:
 
 ```bash
-python .agent/skills/superpowers-workflow/scripts/write_artifact.py --path artifacts/superpowers/plan.md
+python .agent/skills/superpowers-workflow/scripts/write_artifact.py --path artifacts/superpowers/plan.md --file temp_plan.md
 
 ```
 
-Provide the plan markdown as stdin to the command.
+Write the plan markdown to a temporary file (e.g., `temp_plan.md`), run the command with `--file`, and then delete the temporary file.
 
 After writing, confirm it exists by listing artifacts/superpowers/.
 

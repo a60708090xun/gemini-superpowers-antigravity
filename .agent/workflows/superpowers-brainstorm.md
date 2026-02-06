@@ -26,11 +26,11 @@ After generating the brainstorm content, you MUST write it to disk using this ex
 2) Then immediately run:
 
 ```bash
-python .agent/skills/superpowers-workflow/scripts/write_artifact.py --path artifacts/superpowers/brainstorm.md
+python .agent/skills/superpowers-workflow/scripts/write_artifact.py --path artifacts/superpowers/brainstorm.md --file temp_brainstorm.md
 
 ```
 
-Provide the brainstorm markdown as stdin to the command.
+Write the brainstorm markdown to a temporary file (e.g., `temp_brainstorm.md`), run the command with `--file`, and then delete the temporary file.
 
 After writing, confirm it exists by listing artifacts/superpowers/.
 

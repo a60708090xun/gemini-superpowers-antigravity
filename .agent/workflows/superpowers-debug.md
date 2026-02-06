@@ -21,11 +21,11 @@ After generating the debug content above, you MUST write it to disk:
 2) Run:
 
 ```bash
-python .agent/skills/superpowers-workflow/scripts/write_artifact.py --path artifacts/superpowers/debug.md
+python .agent/skills/superpowers-workflow/scripts/write_artifact.py --path artifacts/superpowers/debug.md --file temp_debug.md
 
 ```
 
-Provide the debug markdown as stdin to the command.
+Write the debug markdown to a temporary file (e.g., `temp_debug.md`), run the command with `--file`, and then delete the temporary file.
 
 After writing, confirm it exists by listing artifacts/superpowers/.
 
